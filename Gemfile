@@ -52,3 +52,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Added at 2018-07-16 15:12:36 -0600 by sabrinarobinson:
 gem "rspec", "~> 3.7"
+
+# Added at 2018-07-17 11:00:53 -0600 by sabrinarobinson:
+gem "faker", "~> 1.9"
+
+# Added at 2018-07-17 11:14:23 -0600 by sabrinarobinson:
+gem "factory_bot_rails", "~> 4.10"
