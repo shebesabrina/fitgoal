@@ -10,49 +10,57 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_18_030231) do
+ActiveRecord::Schema.define(version: 2018_07_19_044034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "days", force: :cascade do |t|
-    t.bigint "plans_id"
+    t.bigint "plan_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["plans_id"], name: "index_days_on_plans_id"
+    t.index ["plan_id"], name: "index_days_on_plan_id"
   end
 
   create_table "goals", force: :cascade do |t|
-    t.float "length"
+    t.float "distance"
     t.string "skill_level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "plans", force: :cascade do |t|
-    t.bigint "goals_id"
+  create_table "locations", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "zip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["goals_id"], name: "index_plans_on_goals_id"
+    t.index ["user_id"], name: "index_locations_on_user_id"
+  end
+
+  create_table "plans", force: :cascade do |t|
+    t.bigint "goal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["goal_id"], name: "index_plans_on_goal_id"
   end
 
   create_table "user_plan_days", force: :cascade do |t|
-    t.bigint "days_id"
-    t.bigint "user_plans_id"
-    t.datetime "date"
+    t.bigint "day_id"
+    t.bigint "user_plan_id"
+    t.datetime "run_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["days_id"], name: "index_user_plan_days_on_days_id"
-    t.index ["user_plans_id"], name: "index_user_plan_days_on_user_plans_id"
+    t.index ["day_id"], name: "index_user_plan_days_on_day_id"
+    t.index ["user_plan_id"], name: "index_user_plan_days_on_user_plan_id"
   end
 
   create_table "user_plans", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "plans_id"
+    t.bigint "plan_id"
     t.datetime "start_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["plans_id"], name: "index_user_plans_on_plans_id"
+    t.index ["plan_id"], name: "index_user_plans_on_plan_id"
     t.index ["user_id"], name: "index_user_plans_on_user_id"
   end
 
@@ -64,10 +72,11 @@ ActiveRecord::Schema.define(version: 2018_07_18_030231) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "days", "plans", column: "plans_id"
-  add_foreign_key "plans", "goals", column: "goals_id"
-  add_foreign_key "user_plan_days", "days", column: "days_id"
-  add_foreign_key "user_plan_days", "user_plans", column: "user_plans_id"
-  add_foreign_key "user_plans", "plans", column: "plans_id"
+  add_foreign_key "days", "plans"
+  add_foreign_key "locations", "users"
+  add_foreign_key "plans", "goals"
+  add_foreign_key "user_plan_days", "days"
+  add_foreign_key "user_plan_days", "user_plans"
+  add_foreign_key "user_plans", "plans"
   add_foreign_key "user_plans", "users"
 end

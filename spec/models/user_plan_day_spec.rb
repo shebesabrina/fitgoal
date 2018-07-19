@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe UserPlanDay, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should validate_presence_of :run_date }
+
+  it { should belong_to :user_plan }
+  it { should belong_to :day }
 end

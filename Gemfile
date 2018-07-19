@@ -58,3 +58,6 @@ gem "faker", "~> 1.9"
 
 # Added at 2018-07-17 11:14:23 -0600 by sabrinarobinson:
 gem "factory_bot_rails", "~> 4.10"
+
+# Added at 2018-07-18 20:52:11 -0600 by sabrinarobinson:
+gem "shoulda-matchers", "~> 3.1"
