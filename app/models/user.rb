@@ -12,7 +12,10 @@ class User < ApplicationRecord
   # end
 
   def zip
-    binding.pry
-    locations.first.zip
+    unless locations.empty?
+      locations.first.zip
+    else
+      '80202'
+    end
   end
 end
