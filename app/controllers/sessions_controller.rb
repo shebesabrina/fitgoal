@@ -4,11 +4,10 @@ class SessionsController < ApplicationController
    end
 
   def create
-    # binding.pry
     user = User.find_by(email: params['email'])
     if user && user.authenticate(params['password'])
-      session[:id] = user.id
-      redirect_to user_path(user)
+      session[:user_id] = user.id
+      redirect_to dashboard_path
     else
       flash[:error] = 'Invalid username and/or password. Please try again!'
       redirect_to login_path
@@ -16,7 +15,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:id] = nil
+    # binding.pry
+    session[:user_id] = nil
     redirect_to root_url
   end
 end

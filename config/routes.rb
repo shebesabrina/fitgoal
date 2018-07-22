@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-  get '/login',  to: 'sessions#new'
-  post '/login',  to: 'sessions#create'
-  get '/logout', to: 'sessions#destroy'
+  get 'logout', to: 'sessions#destroy'
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
 
-  resources :users, only: [:create, :new, :show, :destroy]
-  # get '/dashboard/:id', to: 'user#show', as: :dashboard
+  resources :users, only: [:create, :new, :destroy]
+  
   get '/dashboard', to: 'dashboard#show'
 
   get :feed, to: 'feed#index', as: 'feed'
