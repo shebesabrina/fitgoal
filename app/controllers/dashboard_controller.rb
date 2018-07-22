@@ -1,9 +1,5 @@
 class DashboardController < ApplicationController
   def show
-
-  end
-
-  def index
-
+    @presenter = DashboardPresenter.new(current_user)
   end
 end

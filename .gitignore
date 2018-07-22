@@ -27,3 +27,6 @@
 /quickstart/client_secrets.jso
 token.yaml
 *.lock.json
+
+# Ignore application configuration
+/config/application.yml

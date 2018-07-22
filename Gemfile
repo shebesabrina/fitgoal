@@ -61,3 +61,27 @@ gem "factory_bot_rails", "~> 4.10"
 
 # Added at 2018-07-18 20:52:11 -0600 by sabrinarobinson:
 gem "shoulda-matchers", "~> 3.1"
+
+# Added at 2018-07-19 10:46:09 -0600 by sabrinarobinson:
+gem "capybara", "~> 3.3"
+
+# Added at 2018-07-19 10:46:33 -0600 by sabrinarobinson:
+gem "pry", "~> 0.11.3"
+
+# Added at 2018-07-19 10:46:48 -0600 by sabrinarobinson:
+gem "simplecov", "~> 0.16.1"
+
+# Added at 2018-07-19 10:48:25 -0600 by sabrinarobinson:
+gem "launchy", "~> 2.4"
+
+# Added at 2018-07-19 12:16:23 -0600 by sabrinarobinson:
+gem "bcrypt", "~> 3.1"
+
+# Added at 2018-07-19 15:02:43 -0600 by sabrinarobinson:
+gem "faraday", "~> 0.15.2"
+
+# Added at 2018-07-19 15:10:47 -0600 by sabrinarobinson:
+gem "webmock", "~> 3.4"
+
+# Added at 2018-07-19 15:23:01 -0600 by sabrinarobinson:
+gem "figaro", "~> 1.1"

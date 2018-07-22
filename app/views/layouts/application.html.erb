@@ -8,12 +8,9 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
-  <%= link_to "Feed", feed_path %>
-  <%= link_to "Goals", goals_path %>
-  <%= link_to "Buddies", buddies_path %>
-  <%= link_to "Hangout", hangout_path %>
-  <%= link_to "Log out", logout_path %>
+
   <body>
+    <%= render 'partials/nav' %>
     <%= yield %>
   </body>
 </html>
