@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'User' do
-  it 'can add miles run to profile' do
+  xit 'can add miles run to profile' do
 
     stub_request(:get, "http://api.openweathermap.org/data/2.5/weather?zip=80202&APPID=2a97df7339e39a99483db2008fa8e34b&units=imperial").
     to_return(body: File.open('./fixtures/openweatherapp.json'))
