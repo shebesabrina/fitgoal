@@ -9,9 +9,18 @@ class SessionsController < ApplicationController
    end
 
   def create
-    @user = User.find_or_create_from_auth_hash(auth_hash)
-    self.current_user = @user
-    redirect_to '/'
+    @user = strava_omniauth
+    session[:user_id] = @user.id
+    redirect_to dashboard_path
+  end
+
+  def strava_omniauth
+    user = User.find_or_create_by(uid: auth_hash['uid'])
+    user.name = auth_hash['info']['first_name']+" "+auth_hash['info']['last_name']
+    user.email = auth_hash['info']['email']
+    user.uid = auth_hash['uid']
+    user.save!
+    user
   end
 
   protected
