@@ -3,12 +3,13 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="/assets/stylesheets/application.css.erb">
   </head>
   <body>
-    <div id="home">
+    <div class="home">
     <h1>Welcome to Fit Goal</h1>
-      <%= link_to "Sign Up to Be a User", new_user_path %>
-    </div>
-
+    <%= link_to "Sign Up to Be a User", new_user_path %>
+    <%= link_to "Log In with Strava", auth_strava_callback_path %>
+  </div>
   </body>
 </html>

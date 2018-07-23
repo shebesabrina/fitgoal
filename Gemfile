@@ -85,3 +85,6 @@ gem "webmock", "~> 3.4"
 
 # Added at 2018-07-19 15:23:01 -0600 by sabrinarobinson:
 gem "figaro", "~> 1.1"
+
+# Added at 2018-07-23 14:48:03 -0600 by sabrinarobinson:
+gem "omniauth-strava", "~> 0.0.6"

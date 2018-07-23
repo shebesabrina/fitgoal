@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   root 'home#index'
+  get '/auth/strava/callback', to: 'sessions#create'
 
   get 'logout', to: 'sessions#destroy'
   get 'login', to: 'sessions#new'
-  post 'login', to: 'sessions#create'
+  # post 'login', to: 'sessions#create'
 
   resources :users, only: [:create, :new, :destroy]
 
