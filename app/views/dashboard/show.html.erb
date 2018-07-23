@@ -3,3 +3,12 @@
   <%= @presenter.description %>
   <%= @presenter.city %>
 </div>
+
+<h1 id='welcome'>Welcome, <%= current_user.name %>!</h1>
+
+<%= link_to "Account", user_path(current_user) %>
+<%= link_to "Feed", feed_path %>
+<%= link_to "Goals", goals_path %>
+<%= link_to "Record Run", record_path(current_user) %>
+<%= link_to "Buddies", buddies_path %>
+<%= link_to "Hangout", hangout_path %>

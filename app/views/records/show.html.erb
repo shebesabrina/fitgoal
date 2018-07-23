@@ -1,0 +1,12 @@
+<%= form_for @user do |f| %>
+  <%= f.label :workout_name %>:
+  <%= f.text_field :workout_name%><br />
+
+  <%= f.label :date %>:
+  <%= f.date_select :date %><br />
+
+  <%= f.label :distance %>
+  <%= f.number_field :distance %>
+
+  <%= f.submit 'Save' %>
+<% end %>

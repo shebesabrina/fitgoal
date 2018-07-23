@@ -1,6 +1,6 @@
 <h1>Let's start running!</h1>
 <%= form_for @user do |f| %>
- Hello World
+
   <%= f.label :name %>
   <%= f.text_field :name %>
 
@@ -9,6 +9,9 @@
 
   <%= f.label :password %>
   <%= f.password_field :password %>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
 
   <%= f.submit %>
 
