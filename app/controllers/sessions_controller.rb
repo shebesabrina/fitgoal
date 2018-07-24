@@ -9,9 +9,20 @@ class SessionsController < ApplicationController
    end
 
   def create
-    @user = strava_omniauth
-    session[:user_id] = @user.id
-    redirect_to dashboard_path
+    if auth_hash
+      user = strava_omniauth
+      session[:user_id] = user.id
+      redirect_to dashboard_path
+    else
+      user = User.find_by(email: params['email'])
+      if user && user.authenticate(params['password'])
+        session[:user_id] = user.id
+        redirect_to dashboard_path
+      else
+        flash[:error] = 'Invalid username and/or password. Please try again!'
+        redirect_to login_path
+      end
+    end
   end
 
   def strava_omniauth
@@ -19,8 +30,6 @@ class SessionsController < ApplicationController
     user.name = auth_hash['info']['first_name']+" "+auth_hash['info']['last_name']
     user.email = auth_hash['info']['email']
     user.uid = auth_hash['uid']
-    binding.pry
-    user.save!
     user
   end
 
@@ -33,14 +42,5 @@ class SessionsController < ApplicationController
 
 
 
-  #   user = User.find_by(email: params['email'])
-  #   if user && user.authenticate(params['password'])
-  #     session[:user_id] = user.id
-  #     redirect_to dashboard_path
-  #   else
-  #     flash[:error] = 'Invalid username and/or password. Please try again!'
-  #     redirect_to login_path
-  #   end
-  # end
 
 end

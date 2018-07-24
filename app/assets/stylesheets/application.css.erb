@@ -1,0 +1,123 @@
+html {
+  box-sizing: border-box;
+}
+
+#home {
+  background-image: url(<%= asset_path('home_page.jpg') %>);
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  color: white;
+}
+
+#welcome {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+nav {
+
+  padding: 20px;
+  background-color: #3A778D;
+  color: white;
+}
+
+*,
+*:after,
+*:before {
+   margin: 0;
+   padding: 0;
+   box-sizing: inherit;
+}
+
+h1, h2, h3 {
+  padding: 20px;
+}
+
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  width: 100vw;
+  height: 100vh;
+}
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a:active {
+    color: #E7CA64;
+
+  }
+a:visited {
+    color:black;
+
+  }
+
+th {
+  padding-bottom: 5px;
+}
+
+td {
+  padding: 0 5px 7px;
+}
+
+.field{
+  text-align: center;
+  font-size: large;
+  padding: 20px;
+}
+
+.submit {
+  text-align: center;
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px -7px 0;
+  background-color: #c00;
+  color: #fff;
+}
+
+ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+label {
+  display: block;
+}
