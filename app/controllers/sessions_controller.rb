@@ -19,6 +19,7 @@ class SessionsController < ApplicationController
     user.name = auth_hash['info']['first_name']+" "+auth_hash['info']['last_name']
     user.email = auth_hash['info']['email']
     user.uid = auth_hash['uid']
+    binding.pry
     user.save!
     user
   end
