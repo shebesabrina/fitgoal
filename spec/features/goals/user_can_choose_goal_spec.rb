@@ -10,9 +10,8 @@ require 'rails_helper'
 
      visit '/dashboard'
 
-     click_on 'Add a goal'
+     click_on 'Add a Goal'
 
      expect(current_path).to eq(new_goal_path)
-     end
    end
  end
