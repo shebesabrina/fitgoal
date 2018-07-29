@@ -3,6 +3,7 @@ require 'rails_helper'
    it 'allows user to choose a workout goal' do
      stub_request(:get, "http://api.openweathermap.org/data/2.5/weather?zip=80202&APPID=2a97df7339e39a99483db2008fa8e34b&units=imperial").
      to_return(body: File.open('./fixtures/openweatherapp.json'))
+     # plan = Plan.days
 
      user = create(:location).user
 
@@ -13,5 +14,11 @@ require 'rails_helper'
      click_on 'Add a Goal'
 
      expect(current_path).to eq(new_goal_path)
+
+     within('.five_k') do
+       click_on 'beginner'
+     end
+     expect(current_path).to eq(goals_path)
+     expect(page).to have_content("Rest or run/walk")
    end
  end
