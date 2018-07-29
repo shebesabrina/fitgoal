@@ -23,13 +23,6 @@ ActiveRecord::Schema.define(version: 2018_07_23_223100) do
     t.index ["plan_id"], name: "index_days_on_plan_id"
   end
 
-  create_table "goals", force: :cascade do |t|
-    t.float "distance"
-    t.string "skill_level"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "locations", force: :cascade do |t|
     t.bigint "user_id"
     t.string "zip"
@@ -39,11 +32,9 @@ ActiveRecord::Schema.define(version: 2018_07_23_223100) do
   end
 
   create_table "plans", force: :cascade do |t|
-    t.bigint "goal_id"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
-    t.index ["goal_id"], name: "index_plans_on_goal_id"
   end
 
   create_table "user_plan_days", force: :cascade do |t|
@@ -77,7 +68,6 @@ ActiveRecord::Schema.define(version: 2018_07_23_223100) do
 
   add_foreign_key "days", "plans"
   add_foreign_key "locations", "users"
-  add_foreign_key "plans", "goals"
   add_foreign_key "user_plan_days", "days"
   add_foreign_key "user_plan_days", "user_plans"
   add_foreign_key "user_plans", "plans"

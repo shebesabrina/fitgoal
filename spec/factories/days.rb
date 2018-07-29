@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :day do
-    plans nil
+    association :plan
   end
 end
