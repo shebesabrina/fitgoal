@@ -1,7 +1,9 @@
 class UserPlansController < ApplicationController
+  def new
+
+  end
 
   def index
-    binding.pry
     current_user.plans
   end
 

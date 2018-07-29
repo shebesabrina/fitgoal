@@ -11,14 +11,14 @@ require 'rails_helper'
 
      visit '/dashboard'
 
-     click_on 'Add a Goal'
+     click_on 'Add a Workout Plan'
 
-     expect(current_path).to eq(new_goal_path)
+     expect(current_path).to eq(new_user_plan_path)
 
      within('.five_k') do
        click_on 'beginner'
      end
-     expect(current_path).to eq(goals_path)
+     expect(current_path).to eq(user_plans_path)
      expect(page).to have_content("Rest or run/walk")
    end
  end

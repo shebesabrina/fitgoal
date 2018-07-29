@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe GoalsController, type: :controller do
+RSpec.describe UserPlansController, type: :controller do
 
 end

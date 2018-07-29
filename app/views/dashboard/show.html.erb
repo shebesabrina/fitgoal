@@ -1,12 +1,12 @@
 <div class="weather">
-  <%= @presenter.temp %>
-  <%= @presenter.description %>
+  <%= @presenter.temp %>ºF<br>
+  <%= @presenter.description %><br>
   <%= @presenter.city %>
 </div>
 
 <h1 id='welcome'>Welcome, <%= current_user.name %>!</h1>
-
-<%= link_to "Account", user_path(current_user) %>
-<%= link_to "Add a Goal", new_goal_path %>
-<%= link_to "Goals", goals_path %>
-<%= link_to "Record Run", record_path(current_user) %>
+<div class="plan_links">
+  <%= link_to "Add a Workout Plan", new_user_plan_path %></br>
+  <%= link_to "Workout Plans", user_plans_path %></br>
+  <%= link_to "Record Run", record_path(current_user) %></br>
+</div>

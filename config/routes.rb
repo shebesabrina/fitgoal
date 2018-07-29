@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   # get :buddies, to: 'buddies#index', as: 'buddies'
   # get :hangout, to: 'hangout#index', as: 'hangout'
   resources :record
-  resources :goals, only: [:index, :show, :new, :update]
-  resources :plans, only: [:index, :show]
+  resources :user_plans, only: [:index, :show, :new, :update]
+
 
 end
