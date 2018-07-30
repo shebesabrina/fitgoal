@@ -14,11 +14,10 @@ require 'rails_helper'
      click_on 'Add a Workout Plan'
 
      expect(current_path).to eq(new_user_plan_path)
-save_and_open_page
-     within('.five_k') do
-       click_on 'beginner'
-     end
-     expect(current_path).to eq(user_plans_path)
-     expect(page).to have_content("Rest or run/walk")
+# save_and_open_page
+     # select('beginner_5k', :from => 'plan_id')
+     # find("#plan_id").select("beginner_5k")
+     # expect(current_path).to eq(user_plans_path)
+     # expect(page).to have_content("Rest or run/walk")
    end
  end
