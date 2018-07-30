@@ -3,8 +3,13 @@ class UserPlansController < ApplicationController
 
   end
 
+  def create
+
+  end
+
   def index
-    current_user.plans
+    plan = PlanCSVReader.new(params)
+    # current_user.plans
   end
 
   def show
