@@ -14,7 +14,7 @@ require 'rails_helper'
      click_on 'Add a Workout Plan'
 
      expect(current_path).to eq(new_user_plan_path)
-
+save_and_open_page
      within('.five_k') do
        click_on 'beginner'
      end

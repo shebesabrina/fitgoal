@@ -1,10 +1,6 @@
-<h2>5-K Training</h2>
-<%= form_tag user_plans_path, method: 'get' do %>
-  <%= select_tag "plan_id", options_for_select(@plan.map{ |plan| [plan.name, plan.id] }, selected: params["plan_id"]) %>
+<h2>Pick a Plan</h2>
+<%= form_tag user_plans_path, method: 'post' do %>
+  <%= collection_select(:plan, :id, Plan.all, :id, :name, prompt: true) %>
+  <%= date_field_tag(:start_date) %>
   <%= submit_tag "Submit" %>
 <% end %>
-
-<h2>8-K Training</h2>
-<h2>10-K Training</h2>
-<h2>Half Marathon Training</h2>
-<h2>Marathon Training</h2>
