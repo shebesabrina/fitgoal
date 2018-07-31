@@ -1,7 +1,5 @@
 <div id='calendar'></div>
-<!-- <% @days.each do |day| %>
-  <%= day.workout %><br>
-<% end %> -->
+
 <script type="text/javascript">
   $(function() {
     const calendar = $('#calendar');
@@ -10,7 +8,15 @@
         left: 'prev,next,today',
         center: 'title',
         right: 'month,agendaWeek,agendaDay'
-        }
+        },
+      selectable: true,
+      selectHelper: true,
+      editable: true,
+      eventLimit: true
+
     })
   });
 </script>
+'<% @days.each do |day| %>'
+'<%= day.workout %><br>'
+'<% end %>'
