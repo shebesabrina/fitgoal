@@ -6,7 +6,7 @@ class RemindersController < ApplicationController
   def index
     @reminders = Reminder.all
     if @reminders.length.zero?
-      flash[:alert] = 'You have no appointments. Create one now to get started.'
+      flash[:alert] = 'You have no reminders. Create one now to get started.'
     end
   end
 
@@ -27,11 +27,11 @@ class RemindersController < ApplicationController
   # POST /reminders
   # POST /reminders.json
   def create
-    Time.zone = appointment_params[:time_zone]
-    @reminder = Reminder.new(reminder_params)
-
+    Time.zone = reminder_params[:time_zone]
+    reminder = Reminder.create(reminder_params)
+    binding.pry
     respond_to do |format|
-      if @reminder.save
+      if reminder
         format.html { redirect_to @reminder, notice: 'Reminder was successfully created.' }
         format.json { render :show, status: :created, location: @reminder }
       else

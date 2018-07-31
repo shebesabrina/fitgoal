@@ -5,7 +5,7 @@ class Reminder < ApplicationRecord
   after_create :reminder
 
   # Notify our appointment attendee X minutes before the appointment time
-  def remind_user
+  def reminder_user
     @twilio_number = ENV['TWILIO_NUMBER']
     account_sid = ENV['TWILIO_ACCOUNT_SID']
     @client = Twilio::REST::Client.new account_sid, ENV['TWILIO_AUTH_TOKEN']
@@ -23,5 +23,5 @@ class Reminder < ApplicationRecord
     time - minutes_before_appointment
   end
 
-  handle_asynchronously :reminder, :run_at => Proc.new { |i| i.when_to_run }
+  handle_asynchronously :reminder_user, :run_at => Proc.new { |i| i.when_to_run }
 end
