@@ -12,11 +12,12 @@
       selectable: true,
       selectHelper: true,
       editable: true,
-      eventLimit: true
+      eventLimit: true,
+      events:
+      '<% @days.each do |day| %>'
+      '<%= day.workout %><br>'
+      '<% end %>'
 
     })
   });
 </script>
-'<% @days.each do |day| %>'
-'<%= day.workout %><br>'
-'<% end %>'
