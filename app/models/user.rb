@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_secure_password :validations => false
   has_many :locations
   has_many :user_plans
+  has_many :reminders
   has_many :plans, through: :user_plans
 
   validates_presence_of :name

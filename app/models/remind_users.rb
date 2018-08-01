@@ -1,7 +1,7 @@
 class RemindUsers
-  def initialize(time)
-    @time = time
-    @today = Date.today
+  def initialize(attr)
+    @time = attr[:set_at]
+    @phone_number = attr[:phone_number]
     @text_client = TwilioService.new
   end
 
@@ -10,8 +10,8 @@ class RemindUsers
     send_sms
   end
 
-  def gather_reminder
-    @reminders = Reminder.new(send_at: @time)
+  def set_reminder
+    @reminders = Reminder.new(set_at: @time)
   end
 
   def send_messages

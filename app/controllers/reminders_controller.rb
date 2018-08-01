@@ -17,7 +17,8 @@ class RemindersController < ApplicationController
 
   # GET /reminders/new
   def new
-    @reminder = Reminder.new
+    @reminder = current_user.reminders.new
+    # @reminder = Reminder.new
   end
 
   # GET /reminders/1/edit
@@ -27,8 +28,11 @@ class RemindersController < ApplicationController
   # POST /reminders
   # POST /reminders.json
   def create
-    Time.zone = reminder_params[:time_zone]
-    @reminder = Reminder.create!(reminder_params)
+    # Time.zone = reminder_params[:time_zone]
+    # @remind_user = RemindUsers.new(reminder_params).set_reminder
+    # binding.pry
+    # @reminder = Reminder.create!(reminder_params)
+    @reminder = current_user.reminders.create(reminder_params)
     @reminder.reminder_user
     respond_to do |format|
       if @reminder.save

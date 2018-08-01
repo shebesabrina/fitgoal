@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_01_040618) do
+ActiveRecord::Schema.define(version: 2018_08_01_161716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,11 +38,13 @@ ActiveRecord::Schema.define(version: 2018_08_01_040618) do
   end
 
   create_table "reminders", force: :cascade do |t|
-    t.string "name"
     t.string "phone_number"
     t.datetime "time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "set_at"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_reminders_on_user_id"
   end
 
   create_table "user_plan_days", force: :cascade do |t|
@@ -77,6 +79,7 @@ ActiveRecord::Schema.define(version: 2018_08_01_040618) do
 
   add_foreign_key "days", "plans"
   add_foreign_key "locations", "users"
+  add_foreign_key "reminders", "users"
   add_foreign_key "user_plan_days", "days"
   add_foreign_key "user_plan_days", "user_plans"
   add_foreign_key "user_plans", "plans"

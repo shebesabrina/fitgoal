@@ -12,18 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
     <%= form.label :phone_number %>
     <%= form.text_field :phone_number %>
   </div>
 
-  <div class="field">
-    <%= form.label :time %>
-    <%= form.datetime_select :time %>
+  <div class="drop_down">
+    <%= form.select(:set_at) do %>
+      <%= [['6 am'], ['noon'], ['6 pm']].each do |c| -%>
+         <%= content_tag(:option, c.first, value: c.last) %>
+       <% end %>
+    <% end %>
   </div>
 
   <div class="actions">

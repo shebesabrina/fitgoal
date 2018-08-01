@@ -1,7 +1,7 @@
 class TwilioService
   def initialize
     @twilio_number = ENV['TWILIO_NUMBER']
-    @client = Twilio::REST::Client.new account_sid, ENV['TWILIO_AUTH_TOKEN'], ENV['TWILIO_ACCOUNT_SID']
+    @client = Twilio::REST::Client.new, ENV['TWILIO_AUTH_TOKEN'], ENV['TWILIO_ACCOUNT_SID']
   end
 
   def send_sms(phone_number, message)
