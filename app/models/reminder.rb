@@ -6,17 +6,17 @@ class Reminder < ApplicationRecord
 
   # Notify our appointment attendee X minutes before the appointment time
   def reminder_user
-    @twilio_number = ENV['TWILIO_NUMBER']
-    account_sid = ENV['TWILIO_ACCOUNT_SID']
-    @client = Twilio::REST::Client.new account_sid, ENV['TWILIO_AUTH_TOKEN']
+    # @twilio_number = ENV['TWILIO_NUMBER']
+    # account_sid = ENV['TWILIO_ACCOUNT_SID']
+    # @client = Twilio::REST::Client.new account_sid, ENV['TWILIO_AUTH_TOKEN']
     time_str = ((self.time).localtime).strftime("%I:%M%p on %b. %d, %Y")
     reminder = "Hi #{self.name}. Just a reminder that you have an appointment coming up at #{time_str}."
-    client_account = @client.api.account
-     message = client_account.messages.create(
-      :from => @twilio_number,
-      :to => self.phone_number,
-      :body => reminder,
-    )
+    # client_account = @client.api.account
+    #  message = client_account.messages.create(
+    #   :from => @twilio_number,
+    #   :to => self.phone_number,
+    #   :body => reminder,
+    # )
   end
 
   def when_to_run
