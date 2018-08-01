@@ -2,7 +2,7 @@ class Reminder < ApplicationRecord
   validates :name, presence: true
   validates :phone_number, presence: true
   validates :time, presence: true
-  after_create :reminder
+  # after_create :reminder_user
 
   # Notify our appointment attendee X minutes before the appointment time
   def reminder_user

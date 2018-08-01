@@ -28,10 +28,10 @@ class RemindersController < ApplicationController
   # POST /reminders.json
   def create
     Time.zone = reminder_params[:time_zone]
-    reminder = Reminder.create(reminder_params)
-    binding.pry
+    @reminder = Reminder.create!(reminder_params)
+    @reminder.reminder_user
     respond_to do |format|
-      if reminder
+      if @reminder.save
         format.html { redirect_to @reminder, notice: 'Reminder was successfully created.' }
         format.json { render :show, status: :created, location: @reminder }
       else

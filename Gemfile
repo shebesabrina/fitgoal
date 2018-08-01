@@ -100,3 +100,5 @@ gem "twitter-bootstrap-rails", "~> 4.0"
 
 # Added at 2018-07-31 15:47:44 -0600 by sabrinarobinson:
 gem "delayed_job", "~> 4.1"
+
+gem 'delayed_job_active_record'
