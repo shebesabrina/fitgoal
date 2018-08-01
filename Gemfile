@@ -88,3 +88,17 @@ gem "figaro", "~> 1.1"
 
 # Added at 2018-07-23 14:48:03 -0600 by sabrinarobinson:
 gem "omniauth-strava", "~> 0.0.6"
+
+# Added at 2018-07-31 14:22:45 -0600 by sabrinarobinson:
+gem "twilio-ruby", "~> 5.11"
+
+# Added at 2018-07-31 15:09:45 -0600 by sabrinarobinson:
+gem "sinatra", "~> 2.0"
+
+# Added at 2018-07-31 15:18:06 -0600 by sabrinarobinson:
+gem "twitter-bootstrap-rails", "~> 4.0"
+
+# Added at 2018-07-31 15:47:44 -0600 by sabrinarobinson:
+gem "delayed_job", "~> 4.1"
+
+gem 'delayed_job_active_record'

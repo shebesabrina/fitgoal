@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reminders
   root 'home#index'
 
   get '/auth/strava', as: :strava_login
