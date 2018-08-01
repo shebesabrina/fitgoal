@@ -1,0 +1,33 @@
+<div id='calendar'></div>
+
+<script type="text/javascript">
+  $(function() {
+    const calendar = $('#calendar');
+    const days = JSON.parse('<%=raw @days %>');
+    const calendarDays = JSON.parse('<%= raw @calendar_days %>');
+    // debugger;
+    const events = days.map(function(day, index) {
+      let date = calendarDays[index];
+      let eventData = {
+        title: day.workout,
+        start: new Date(date.year, date.month, date.day),
+      }
+      return eventData;
+    });
+
+    console.log(events)
+    calendar.fullCalendar({
+      header: {
+        left: 'prev,next,today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay'
+        },
+      events: events,
+      selectable: true,
+      selectHelper: true,
+      editable: true,
+      eventLimit: true
+
+    })
+  });
+</script>
