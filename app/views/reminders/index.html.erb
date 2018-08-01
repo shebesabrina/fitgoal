@@ -15,7 +15,7 @@
   <tbody>
     <% @reminders.each do |reminder| %>
       <tr>
-        <td><%= reminder.name %></td>
+        <td><%= current_user.name %></td>
         <td><%= reminder.phone_number %></td>
         <td><%= reminder.time %></td>
         <td><%= link_to 'Show', reminder %></td>
