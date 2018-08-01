@@ -10,7 +10,6 @@ class PlanCSVReader
   def csv_to_plan
     plan = CSV.open(file_path, headers: true, header_converters: :symbol)
     specific_plan = Plan.create(name: file_path.split("/").last.sub(".csv", ""))
-
     plan.each do |row|
       day_workout = row
 
