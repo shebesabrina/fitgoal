@@ -30,4 +30,3 @@ token.yaml
 
 # Ignore application configuration
 /config/application.yml
-gemfile.lock
