@@ -102,3 +102,5 @@ gem "twitter-bootstrap-rails", "~> 4.0"
 gem "delayed_job", "~> 4.1"
 
 gem 'delayed_job_active_record'
+
+gem 'time_difference'
