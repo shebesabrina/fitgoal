@@ -4,7 +4,7 @@ require 'date'
 class Reminder < ApplicationRecord
   belongs_to :user
 
-  def reminder_user
+  # def reminder_user
     # current_plan = user.user_plans.order(:start_date).first
     # workout_daytime_ago_in_words(current_plan.start_date)
     # binding.pry
@@ -15,7 +15,7 @@ class Reminder < ApplicationRecord
     #
     # end
     # reminder = "Hi #{self.user.name}. Just a reminder that you have  #{time_str}."
-  end
+  # end
 
   def when_to_run
     minutes_before_appointment = 30.minutes

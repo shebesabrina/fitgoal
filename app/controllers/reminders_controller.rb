@@ -1,8 +1,7 @@
 class RemindersController < ApplicationController
   before_action :set_reminder, only: [:show, :edit, :update, :destroy]
 
-  # GET /reminders
-  # GET /reminders.json
+
   def index
     @reminders = Reminder.all
     if @reminders.length.zero?
@@ -10,30 +9,23 @@ class RemindersController < ApplicationController
     end
   end
 
-  # GET /reminders/1
-  # GET /reminders/1.json
+
   def show
   end
 
-  # GET /reminders/new
+
   def new
     @reminder = current_user.reminders.new
-    # @reminder = Reminder.new
   end
 
-  # GET /reminders/1/edit
+
   def edit
   end
 
-  # POST /reminders
-  # POST /reminders.json
   def create
-    # Time.zone = reminder_params[:time_zone]
-    # @remind_user = RemindUsers.new(reminder_params).set_reminder
-    # binding.pry
     # @reminder = Reminder.create!(reminder_params)
     @reminder = current_user.reminders.create(reminder_params)
-    @reminder.reminder_user
+    # @reminder.reminder_user
     respond_to do |format|
       if @reminder.save
         format.html { redirect_to @reminder, notice: 'Reminder was successfully created.' }
@@ -45,8 +37,6 @@ class RemindersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /reminders/1
-  # PATCH/PUT /reminders/1.json
   def update
     respond_to do |format|
       if @reminder.update(reminder_params)
@@ -59,8 +49,6 @@ class RemindersController < ApplicationController
     end
   end
 
-  # DELETE /reminders/1
-  # DELETE /reminders/1.json
   def destroy
     @reminder.destroy
     respond_to do |format|
@@ -70,13 +58,11 @@ class RemindersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_reminder
       @reminder = Reminder.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def reminder_params
-      params.require(:reminder).permit(:name, :phone_number, :time)
+      params.require(:reminder).permit(:phone_number, :set_at)
     end
 end

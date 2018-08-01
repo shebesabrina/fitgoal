@@ -1,4 +1,4 @@
-namespace :remind do
+namespace :reminder do
   desc 'daily reminder for user'
   task :remind_6am => :environment do
     RemindUsers.new('6 am').send_messages
