@@ -22,4 +22,8 @@ class Reminder < ApplicationRecord
     time - minutes_before_appointment
   end
 
+  def self.gather_data(time)
+    where(set_at: time)
+  end
+
 end

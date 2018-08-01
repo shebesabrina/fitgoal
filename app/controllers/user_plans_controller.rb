@@ -30,17 +30,3 @@ class UserPlansController < ApplicationController
     end.to_json
   end
 end
-#
-# class Plan
-#   attr_accessor :name
-#
-#   def initialize(attr)
-#     @name = attr[:name]
-#   end
-#
-#   def self.find_plan(file_path)
-#     binding.pry
-#     PlanCSVReader.new(file_path)
-#
-#   end
-# end
