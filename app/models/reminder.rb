@@ -4,22 +4,20 @@ require 'date'
 class Reminder < ApplicationRecord
   belongs_to :user
 
-  # def reminder_user
-    # current_plan = user.user_plans.order(:start_date).first
-    # workout_daytime_ago_in_words(current_plan.start_date)
-    # binding.pry
-    # workout_day = (DateTime.now - current_plan.start_date).to_i
-    # start_date = user.user_plans.start_date
-    # workout = user.user_plan.days.order(:created_at)
+  def remind_user
+    start_date =  user.user_plans.last.start_date
+    current_plan = user.plans.order(:updated_at).first
+    until current_plan.days.last
+      current_plan.days.each do |day|
+        workout_today = day.workout
+        reminder = "Hi #{self.user.name}. Get up and workout! Today: #{workout_today}."
+      end
+    end
+    # start_date =  user.user_plans.last.start_date
+    # TimeDifference.between(start_time, end_time).in_days
     # workout_day = start_date.each do |plan|
     #
     # end
-    # reminder = "Hi #{self.user.name}. Just a reminder that you have  #{time_str}."
-  # end
-
-  def when_to_run
-    minutes_before_appointment = 30.minutes
-    time - minutes_before_appointment
   end
 
   def self.gather_data(time)

@@ -1,8 +1,5 @@
 class UserPlansController < ApplicationController
   def new
-    # binding.pry
-    # @plan = PlanCSVReader.new(params[:plan_id])
-    # @plan = Plan.new(params[:name])
   end
 
   def create

@@ -17,6 +17,7 @@ require 'rails_helper'
 # save_and_open_page
      select('beginner_5k', :from => 'plan_id')
      find("#plan_id").select("beginner_5k")
+     click_on "Submit"
      expect(current_path).to eq(user_plans_path)
      expect(page).to have_content("Rest or run/walk")
    end

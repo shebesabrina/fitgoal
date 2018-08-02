@@ -1,7 +1,6 @@
 class RemindersController < ApplicationController
   before_action :set_reminder, only: [:show, :edit, :update, :destroy]
 
-
   def index
     @reminders = Reminder.all
     if @reminders.length.zero?
@@ -9,15 +8,12 @@ class RemindersController < ApplicationController
     end
   end
 
-
   def show
   end
-
 
   def new
     @reminder = current_user.reminders.new
   end
-
 
   def edit
   end
@@ -25,7 +21,8 @@ class RemindersController < ApplicationController
   def create
     # @reminder = Reminder.create!(reminder_params)
     @reminder = current_user.reminders.create(reminder_params)
-    # @reminder.reminder_user
+    # binding.pry
+    # @reminder.remind_user
     respond_to do |format|
       if @reminder.save
         format.html { redirect_to @reminder, notice: 'Reminder was successfully created.' }

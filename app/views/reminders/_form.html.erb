@@ -18,7 +18,7 @@
 
   <div class="drop_down">
     <%= form.select(:set_at) do %>
-      <%= [['6 am'], ['noon'], ['6 pm']].each do |c| -%>
+      <%= [['6 am'], ['noon'], ['6 pm'], ['now']].each do |c| -%>
          <%= content_tag(:option, c.first, value: c.last) %>
        <% end %>
     <% end %>
