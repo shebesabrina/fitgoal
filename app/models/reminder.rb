@@ -10,18 +10,13 @@ class Reminder < ApplicationRecord
     until current_plan.days.last
       current_plan.days.each do |day|
         workout_today = day.workout
-        reminder = "Hi #{self.user.name}. Just a reminder that you have  #{time_str}."
+        reminder = "Hi #{self.user.name}. Get up and workout! Today: #{workout_today}."
       end
     end
     # TimeDifference.between(start_time, end_time).in_days
     # workout_day = start_date.each do |plan|
     #
     # end
-  end
-
-  def when_to_run
-    minutes_before_appointment = 30.minutes
-    time - minutes_before_appointment
   end
 
   def self.gather_data(time)
