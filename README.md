@@ -1,6 +1,7 @@
 ## FitGoal
 
-<img src="homepage.jpg" alt="Home page">
+![Alt text](https://github.com/shebesabrina/fitgoal/blob/twilio/app/assets/images/homepage.jpg "Home page")
+
 
 FitGoal is an application to help you train for a new race or improve your running skills. When log in and sign up for a running plan you'll have the option to pick a running distance, and your level of running skills. Once you have selected your plan you'll have a planned running calendar that will show you which day you need to run or work out and for how long. If you'd like you can also set up text message notifications. 
 
